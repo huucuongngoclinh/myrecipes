@@ -1,0 +1,16 @@
+require 'test_helper'
+
+class PagesTest < ActionDispatch::IntegrationTest
+
+	test "show get home" do 
+		get pages_home_url
+
+		assert_response :success
+	end
+
+	test "should get route" do
+		get root_url
+
+		assert_response :success
+	end
+end
