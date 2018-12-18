@@ -68,6 +68,11 @@ class ChefTest < ActiveSupport::TestCase
 		@chef.password = @chef.password_confirmation = " "
 		assert_not @chef.valid?
 	end
+
+	test "password should at least 5 characters" do 
+		@chef.password = @chef.password_confirmation = "a" * 4
+		assert_not @chef.valid?
+	end 
 end
 
 
