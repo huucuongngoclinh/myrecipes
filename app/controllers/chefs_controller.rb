@@ -1,6 +1,6 @@
 class ChefsController < ApplicationController
 
-	before_action :set_chef, only: [:show, :edit, :update]
+	before_action :set_chef, only: [:show, :edit, :update, :destroy]
 	
 
 	def index
@@ -36,6 +36,12 @@ class ChefsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@chef.destroy
+		flash[:danger] = "Chef and related recipes have been deleted"
+		redirect_to chefs_path
 	end
 
 	private
